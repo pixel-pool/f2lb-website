@@ -7,9 +7,10 @@ export const GET_POOLS = /* GraphQL */gql `
             ticker,
             description,
             imageUrl,
+            status,
             wallet{
                 amount,
-                delegation,
+                delegationTicker,
             }
         }
     }

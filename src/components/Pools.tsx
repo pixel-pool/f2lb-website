@@ -1,5 +1,5 @@
 import { useQuery} from "@apollo/client";
-import { Box, Flex, Text, Image, Button, Container, useColorMode, useColorModeValue, VStack, Avatar} from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Button, Container, useColorMode, useColorModeValue, VStack, Avatar, HStack, Center, AvatarBadge} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { isConstructorDeclaration } from "typescript";
 import logo from "../assets/f2lbLogo.png"
@@ -12,17 +12,18 @@ interface Pool {
     queuePos:number,
     description:string,
     imageUrl:string,
+    status:number,
     wallet:{
         amount:number,
-        delegation:string,
+        delegationTicker:string,
     }
 }
 
 export function Pools()
 {
     // style
-    const bg = useColorModeValue(Palette.box.light, Palette.box.dark)
-    const bgSecond = useColorModeValue(Palette.box.light2, Palette.box.light2)
+    const bg = useColorModeValue(Palette.secondary.f2lbBlue, Palette.secondary.f2lbBlue)
+    const bgSecond = useColorModeValue(Palette.primary.f2lbBlue, Palette.primary.f2lbBlue)
 
     // 
     const [pools, setPools] = useState<Pool[]>([]);
@@ -43,17 +44,27 @@ export function Pools()
     console.log(typeof(pools));
 
     return(
-        <Container marginTop={4} p={0}>
-            <VStack>
+        <Container marginTop={6} p={0}>
+            <VStack spacing={4}>
                 {pools.map(p => {
                     return(
-                    <Box key={p.ticker} bg={bg} p={2} borderRadius={15} w={"100%"}>
-                        <Avatar name={p.ticker} src={p.imageUrl} bg={bgSecond}/>
-                        <Text>{p.ticker}</Text>
-                        <Text>{p.queuePos}</Text>
-                        <Text>ADA {(p.wallet.amount / 1000000).toFixed(2)}</Text>
-                        <Text>Delegation {p.wallet.delegation}</Text>
-                    </Box>
+                        <Box key={p.ticker} bg={bg} p={2} borderRadius={15} w={"100%"}>
+                            <Flex w={'100%'}>
+                                <Center p={2}>
+                                    <Avatar  size='xl' name={p.ticker} src={p.imageUrl} bg={bgSecond}>
+                                        <AvatarBadge boxSize='1em' bg={p.wallet.delegationTicker === 'ANTRX' ? 'green.500' : 'red.500'} />
+                                    </Avatar>
+                                </Center>
+
+                                <Text fontSize='2xl'  minW={90}>{p.ticker}</Text>
+
+                                <Box w="100%">
+                                    <Text textAlign='right' px={4}>{p.queuePos}</Text>
+                                    <Text>{`${(p.wallet.amount / 1000000).toFixed(2)} ₳`}</Text>
+                                    <Text>{p.wallet.delegationTicker}</Text>
+                                </Box>
+                            </Flex>
+                        </Box>
                     )
                 })}
             </VStack>

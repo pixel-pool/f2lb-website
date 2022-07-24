@@ -7,7 +7,7 @@ export function Supporters()
 {
     return(
         <Container>
-            <Text>
+            <Text marginTop={6} fontSize='2xl'>
                 Supporters list (coming soon)
             </Text>
         </Container>
