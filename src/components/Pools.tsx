@@ -43,7 +43,7 @@ export function Pools()
     console.log(typeof(pools));
 
     return(
-        <Container marginTop={4}>
+        <Container marginTop={4} p={0}>
             <VStack>
                 {pools.map(p => {
                     return(
