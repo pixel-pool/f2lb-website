@@ -1,10 +1,11 @@
-import { Box, Flex, Text, Image, Button, Container, useColorModeValue} from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Button, Container, useColorModeValue, Link, VStack, Center} from "@chakra-ui/react";
 import { useState } from "react";
 import logo from "../assets/f2lbLogo.png"
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 import { Palette } from "../theme";
 import { Pools } from "./Pools";
 import { Supporters } from "./Supporters";
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 
 
@@ -20,7 +21,22 @@ export function Mode()
 
     return(
         <Container>
-            <Flex justifyContent={'space-between'} alignItems={"center"}>
+            <Text fontSize="2xl">First 2 Lifetime Block community rotation</Text>
+            <VStack>
+            <Link href="https://discord.com/invite/avwxmpyNKf">
+                Discord
+                <ExternalLinkIcon mx='2px'/>
+            </Link>
+            </VStack>
+
+            <VStack>
+            <Link href="https://github.com/pixel-pool/f2lb-backend/issues">
+                Issues 
+                <ExternalLinkIcon mx='2px'/>
+            </Link>
+            </VStack>
+
+            <Flex justifyContent={'space-between'} alignItems={"center"} marginTop={6}>
                     <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => {setMode(DisplayMode.pools)}}>Pools</Button>
                     <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => {setMode(DisplayMode.supporters)}}>Supporters</Button>
             </Flex>

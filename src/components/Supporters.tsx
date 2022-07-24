@@ -10,6 +10,7 @@ export function Supporters()
             <Text marginTop={6} fontSize='2xl'>
                 Supporters list (coming soon)
             </Text>
+            <Box h='50vh'/>
         </Container>
     )
 }

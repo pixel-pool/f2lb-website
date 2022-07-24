@@ -52,7 +52,7 @@ export function Pools()
                             <Flex w={'100%'}>
                                 <Center p={2}>
                                     <Avatar  size='xl' name={p.ticker} src={p.imageUrl} bg={bgSecond}>
-                                        <AvatarBadge boxSize='1em' bg={p.wallet.delegationTicker === 'ANTRX' ? 'green.500' : 'red.500'} />
+                                        <AvatarBadge boxSize='1em' bg={p.status === 0 ? 'green.500' : 'red.500'} />
                                     </Avatar>
                                 </Center>
 
