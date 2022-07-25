@@ -36,6 +36,9 @@ export function Mode()
             </Link>
             </VStack>
 
+            {/* TODO remove this */}
+            <Text marginTop={6}>(Currently under development, please report issues or contact PIXEL for support)</Text>
+
             <Flex justifyContent={'space-between'} alignItems={"center"} marginTop={6}>
                     <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => {setMode(DisplayMode.pools)}}>Pools</Button>
                     <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => {setMode(DisplayMode.supporters)}}>Supporters</Button>
