@@ -15,3 +15,16 @@ export const GET_POOLS = /* GraphQL */gql `
         }
     }
 `;
+
+export const GET_SUPPORTERS = /* GraphQL */gql `
+    query {
+        supporters{
+            alias,
+            status,
+            wallet{
+                amount,
+                delegationTicker,
+            }
+        }
+    }
+`;

@@ -32,7 +32,10 @@ export function Pools()
     useEffect(()=>{
         if(data)
         {
-            setPools(data.pools)
+            const ordered = [...data.pools].sort(function(a:Pool, b:Pool){
+                return a.queuePos - b.queuePos;
+            });
+            setPools(ordered)
         }
     },[data])
 
