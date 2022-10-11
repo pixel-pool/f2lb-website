@@ -19,10 +19,10 @@ const client = new ApolloClient({
 
 root.render(
   <React.StrictMode>
-    <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
+    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
 )
 

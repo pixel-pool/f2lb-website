@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image, Button, Container, useColorModeValue, Link, VStack, Center} from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Button, Container, useColorModeValue, Link, VStack, Center } from "@chakra-ui/react";
 import { useState } from "react";
 import logo from "../assets/f2lbLogo.png"
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
@@ -14,37 +14,36 @@ export const enum DisplayMode {
     supporters = "supporters"
 }
 
-export function Mode()
-{
+export function Mode() {
     const [mode, setMode] = useState(DisplayMode.pools)
     //const btnColor = useColorModeValue('', 'blue')
 
-    return(
+    return (
         <Container>
             <Text fontSize="2xl">First 2 Lifetime Block community rotation</Text>
             <VStack>
-            <Link href="https://discord.com/invite/avwxmpyNKf">
-                Discord
-                <ExternalLinkIcon mx='2px'/>
-            </Link>
+                <Link href="https://discord.com/invite/avwxmpyNKf">
+                    Discord
+                    <ExternalLinkIcon mx='2px' />
+                </Link>
             </VStack>
 
             <VStack>
-            <Link href="https://github.com/pixel-pool/f2lb-backend/issues">
-                Issues 
-                <ExternalLinkIcon mx='2px'/>
-            </Link>
+                <Link href="https://github.com/ada9000/f2lb-backend/issues">
+                    Issues
+                    <ExternalLinkIcon mx='2px' />
+                </Link>
             </VStack>
 
             {/* TODO remove this */}
-            <Text marginTop={6}>(Currently under development, please report issues or contact PIXEL for support)</Text>
+            <Text marginTop={6}>(Currently under development, please report issues or contact [9000] for support)</Text>
 
             <Flex justifyContent={'space-between'} alignItems={"center"} marginTop={6}>
-                    <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => {setMode(DisplayMode.pools)}}>Pools</Button>
-                    <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => {setMode(DisplayMode.supporters)}}>Supporters</Button>
+                <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => { setMode(DisplayMode.pools) }}>Pools</Button>
+                <Button bg={Palette.primary.f2lbBlue} minWidth={130} onClick={() => { setMode(DisplayMode.supporters) }}>Supporters</Button>
             </Flex>
-            { mode === DisplayMode.pools ? (<Pools/>): null}
-            { mode === DisplayMode.supporters ? (<Supporters/>): null}            
+            {mode === DisplayMode.pools ? (<Pools />) : null}
+            {mode === DisplayMode.supporters ? (<Supporters />) : null}
         </Container>
     )
 }
