@@ -51,7 +51,7 @@ export function Pools() {
                                 <Box w="100%">
                                     <Text textAlign='right' px={4}>{p.queuePos}</Text>
                                     <Text>{`${(p.wallets[0]?.lace / 1000000).toFixed(2)} ₳`}</Text>
-                                    <Text>{p.wallets[0]?.delegatedBech32}</Text>
+                                    <Text>{p.supportingLeader ? `supporting [${pools[0].ticker}]` : `no supporting leader`}</Text>
                                 </Box>
                             </Flex>
                         </Box>
